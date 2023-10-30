@@ -7,7 +7,7 @@ local lsp = require("lsp-zero").preset({
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
 
-    lsp.buffer_autoformat()
+    -- lsp.buffer_autoformat()
 
     require("carhconf.lsp.keymaps").setup(client, bufnr)
 end)

@@ -10,9 +10,11 @@ else
     require('solarized').set()
 end
 
+
 vim.wo.relativenumber = true
 vim.wo.number = true
 vim.opt.cursorline = true
+vim.opt.clipboard = 'unnamedplus'
 
 vim.g.terminal_color_background = '#575F66'
 
@@ -117,8 +119,14 @@ local tree_api = require("nvim-tree.api")
 
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<C-g>", tree_api.tree.toggle, opts)
 
+local tree_toggle = function()
+    tree_api.tree.toggle({
+        find_file = true,
+    })
+end
+
+keymap("n", "<C-g>", tree_toggle, opts)
 
 require('neoscroll').setup({
     -- All these keys will be mapped to their corresponding default scrolling animation

@@ -40,9 +40,6 @@ return require('packer').startup(function(use)
         },
     }
 
-    -- code formatting
-    use "editorconfig/editorconfig-vim"
-
     use {
         "folke/which-key.nvim",
         config = function()
@@ -141,6 +138,8 @@ return require('packer').startup(function(use)
     use 'ray-x/go.nvim'
     use 'ray-x/guihua.lua'
     use 'jose-elias-alvarez/null-ls.nvim'
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
     -- git
     use {

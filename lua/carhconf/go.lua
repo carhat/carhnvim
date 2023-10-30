@@ -10,7 +10,7 @@ require('go').setup({
     tag_options = 'json=omitempty',                 -- sets options sent to gomodifytags, i.e., json=omitempty
     gotests_template = "",                          -- sets gotests -template parameter (check gotests for details)
     gotests_template_dir = "",                      -- sets gotests -template_dir parameter (check gotests for details)
-    comment_placeholder = '',                       -- comment_placeholder your cool placeholder e.g. ﳑ       
+    comment_placeholder = '',                    -- comment_placeholder your cool placeholder e.g. ﳑ       
     icons = { breakpoint = '🧘', currentpos = '🏃' }, -- setup to `false` to disable icons setup
     verbose = false,                                -- output loginf in messages
     lsp_cfg = false,                                -- true: use non-default gopls setup specified in go/lsp.lua
@@ -104,36 +104,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     group = go_format_group,
 })
 
--- null-ls
-local null_ls = require("null-ls")
-local sources = {
-    null_ls.builtins.formatting.golines.with({
-        extra_args = {
-            "--max-len=180",
-            "--base-formatter=gofumpt",
-        },
-    })
-}
--- for go.nvim
-local gotest = require("go.null_ls").gotest()
-null_ls.register(gotest)
-
-local gotest_codeaction = require("go.null_ls").gotest_action()
-null_ls.register(gotest_codeaction)
-
--- local golangci_lint = require("go.null_ls").golangci_lint()
--- null_ls.register(golangci_lint)
-
-null_ls.setup({
-    sources = sources,
-    debounce = 250,
-    default_timeout = 5000,
-})
-
 --]]
 --
 ------- TODO: check textobjects
-------- https://github.com/ray-x/go.nvim#text-object
-
-------- TODO: configure debugger
 ------- https://github.com/ray-x/go.nvim#text-object

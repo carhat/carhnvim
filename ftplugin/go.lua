@@ -7,9 +7,16 @@ local mappings = {
 	g = {
 		name = "Golang Mode",
 		t = {
-			t = { '<CMD>GoTest<CR>', 'go test' },
-			v = { '<CMD>GoTest -v<CR>', 'go test -v' },
-			p = { '<CMD>GoTest -v -p<CR>', 'go test -v package' },
+			t = { '<CMD>GoTest -v<CR>', 'go test -v' },
+            f = { '<CMD>GoTestFunc<CR>', 'go test function' },
+            c = {
+                a = { '<CMD>GoCoverage <CR>', 'go coverage all' },
+                p = { '<CMD>GoCoverage -p<CR>', 'go coverage package' },
+                t = { '<CMD>GoCoverage -t<CR>', 'go coverage toggle' },
+                r = { '<CMD>GoCoverage -r<CR>', 'go coverage remove buffer highlighting' },
+                R = { '<CMD>GoCoverage -R<CR>', 'go coverage remove all highlighting' },
+                s = { '<CMD>GoCoverage -m<CR>', 'go coverage statistic' },
+            },
 		},
 		m = { '<CMD>GoModInit<CR>', 'go mod tidy' },
 		b = { '<CMD>GoBuild %<CR>', 'go build' },
